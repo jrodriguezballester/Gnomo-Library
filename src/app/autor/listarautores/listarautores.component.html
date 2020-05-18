@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>AUTORES</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>NACIONALIDAD</th>
+                    <th>F.NACIMIENTO</th>
+
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr class="tr" *ngFor="let autor of authors | sort: 'first_name'" id="tr">
+                    <td *ngIf="autor.id!=1 ">{{autor.first_name}}</td>
+                    <td *ngIf="autor.id!=1 ">{{autor.last_name}}</td>
+                    <td *ngIf="autor.id!=1 ">{{autor.nacionalidad}}</td>
+                    <td *ngIf="autor.id!=1 ">{{autor.fechaNacimiento}}</td>
+                    <ng-container *ngIf="admin">
+                        <td *ngIf="autor.id!=1 && autor.id!=2 ">
+                            <button (click)="openDeleteAutor(modalDeleteAutor); setId(autor.id)" class="btn btn-danger">Delete</button>
+                        </td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<!--////////////////  VENTANA MODAL INFORMATIVA  ////////////////////////-->
+<ng-template #modalInformation let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Gnomo Librery</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+<span aria-hidden="true">&times;</span>
+</button>
+    </div>
+    <div class="modal-body">
+        <p>{{message}}</p>
+    </div>
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Cerrar</button>
+    </div>
+</ng-template>
+
+<!--///////////////  VENTANA MODAL ELIMINAR AUTOR  ///////////////////-->
+<ng-template #modalDeleteAutor let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Gnomo Librery</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+<span aria-hidden="true">&times;</span>
+</button>
+    </div>
+    <div class="modal-body">
+        <h3><b>Estas seguro !!</b></h3>
+        <h5>Se eliminará el autor definitivamente</h5>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" (click)="deleteAuthor()">Eliminar</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Cerrar</button>
+    </div>
+</ng-template>

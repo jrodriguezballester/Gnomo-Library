@@ -1,0 +1,230 @@
+@import "src/styles/layout/columns";
+@import "src/styles/abstracts/variables";
+.container {
+    margin-top: 90px;
+}
+
+.genero {
+    font-family: sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.titulo {
+    padding: 0px 30px 0px 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.titulo-autor {
+    margin-bottom: 135px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.description,
+.autor {
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.description {
+    padding: 40px 0px 10px 0;
+    text-align: center;
+}
+
+.contain {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    display: grid;
+}
+
+.margin-left--l {
+    margin-left: 30px;
+}
+
+.modalCard-titulo {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.modalCard-titulo-header {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 20px 0;
+    margin-left: 140px;
+}
+
+.card-header,
+.modal-header,
+.modal-footer {
+    background-color: $orange-800;
+}
+
+.modal-header {
+    margin-bottom: 30px;
+}
+
+.selecionable {
+    width: 70%;
+    min-height: 300px;
+    background-color: $grey-000;
+    box-shadow: 10px 10px 5px $grey-400;
+    text-align: center;
+    margin: 20px 25px 120px 0px;
+    border: 3px solid $red-100;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.selecionable:hover {
+    width: 68%;
+    box-shadow: 6px 6px 3px $grey-500;
+    border: 1px solid $grey-100;
+    background-color: $grey-900;
+}
+
+.botones {
+    margin-top: -155px;
+    margin-left: 10%;
+}
+
+.sombraLibro {
+    box-shadow: 5px 5px 5px $grey-700;
+    margin: 0 auto;
+}
+
+.sombraLibro:hover {
+    box-shadow: 2px 2px 2px $grey-700;
+    margin: 0 auto;
+}
+
+.btn-edit,
+.btn-delet {
+    height: 25px;
+    margin-bottom: 5px;
+    text-align: start;
+    color: $grey-000;
+}
+
+.btn-edit {
+    margin-right: 5px;
+}
+
+.btn-delet {
+    margin-left: 5px;
+}
+
+#inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile--label:hover {
+    cursor: grab;
+    opacity: 0.7;
+}
+
+.busqueda-input {
+    display: inline;
+}
+
+.modalCard {
+    display: grid;
+    grid-template-areas: "__img __content" "__description __description";
+    &__img {
+        grid-area: __img;
+    }
+    &__content {
+        grid-area: __content;
+    }
+    &__description {
+        grid-area: __description;
+    }
+}
+
+@media(max-width: 1200px) {
+    .genero {
+        margin-left: 5%;
+    }
+    .selecionable {
+        margin-left: 15%;
+    }
+    .botones {
+        margin-left: 27%;
+    }
+}
+
+@media(max-width: 990px) {
+    .busqueda-input {
+        display: block;
+    }
+    .genero {
+        margin-left: 40%;
+    }
+    .selecionable {
+        margin-left: 15%;
+    }
+    .botones {
+        margin-left: 30%;
+    }
+}
+
+@media(max-width: 768px) {
+    .genero {
+        margin-left: 30%;
+    }
+    .selecionable {
+        width: 45%;
+        margin-left: 25%;
+    }
+    .botones {
+        margin-left: 33%;
+    }
+}
+
+@media(max-width: 520px) {
+    .genero {
+        margin-left: 30%;
+    }
+    .selecionable {
+        width: 45%;
+        margin-left: 25%;
+    }
+    .botones {
+        display: flex;
+        flex-direction: column;
+        width: 70px;
+        margin-left: 40%;
+    }
+    .btn-edit {
+        margin: -30px 0px 0px 0px;
+    }
+    .btn-delet {
+        margin: 10px 0px 0px 0px;
+    }
+    .titulo-autor {
+        display: none;
+    }
+}
+
+@media(max-width: 420px) {
+    .botones {
+        display: flex;
+        flex-direction: column;
+        width: 70px;
+        margin-left: 38%;
+    }
+}

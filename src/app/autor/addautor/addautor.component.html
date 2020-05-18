@@ -1,0 +1,73 @@
+<div class="container pt-5 mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h3>Agregar Autor</h3>
+        </div>
+    </div>
+    <div class="card-body">
+         <form [formGroup]="authorForm" > 
+        <!-- <form name="authorForm">  -->
+            <div class="form-group">
+                <label for="first_name">Nombre:</label>
+                <!-- <input type="text" class="form-control" formControlName="first_name" [(ngModel)]="autor.first_name" [ngClass]="{ 'is-invalid': submittedAuthor && afc.first_name.errors }" /> -->
+                <input type="text" class="form-control" formControlName="first_name"  [ngClass]="{ 'is-invalid': submittedAuthor && afc.first_name.errors }" />
+                
+            
+              
+                <div *ngIf="submittedAuthor && afc.first_name.errors" class="invalid-feedback">
+                    <div *ngIf="afc.first_name.errors.required">Nombre is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Apellido:</label>
+                <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ 'is-invalid': submittedAuthor && afc.last_name.errors }" /> -->
+                <input class="form-control" type="text" formControlName="last_name" [ngClass]="{ 'is-invalid': submittedAuthor && afc.last_name.errors }" />
+               
+              
+                <div *ngIf="submittedAuthor && afc.last_name.errors" class="invalid-feedback">
+                    <div *ngIf="afc.last_name.errors.required">Apellido is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Nacionalidad:</label>
+                <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ 'is-invalid': submittedAuthor && afc.last_name.errors }" /> -->
+                <input class="form-control" type="text" formControlName="nacionalidad" [ngClass]="{ 'is-invalid': submittedAuthor && afc.nacionalidad.errors }" />
+               
+              
+                <div *ngIf="submittedAuthor && afc.nacionalidad.errors" class="invalid-feedback">
+                    <div *ngIf="afc.nacionalidad.errors.required">Nacionalidad is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Fecha de nacimiento:</label>
+                <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ 'is-invalid': submittedAuthor && afc.last_name.errors }" /> -->
+                <input type="date" class="form-control" formControlName="fecha" [ngClass]="{ 'is-invalid': submittedAuthor && afc.fecha.errors }" />
+               
+              
+                <div *ngIf="submittedAuthor && afc.fecha.errors" class="invalid-feedback">
+                    <div *ngIf="afc.fecha.errors.required">Fecha de nacimiento is required</div>
+                </div>
+            </div>
+        </form>
+        <button type="button" (click)="Guardar()" class="btn btn-danger">Guardar</button>
+    </div>
+</div>
+<!-- VENTANA MODAL INFORMATIVA -->
+<ng-template #modalInformation let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Gnomo`s Librery</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+<span aria-hidden="true">&times;</span>
+</button>
+    </div>
+    <div class="modal-body">
+        <p id="error">{{information}}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close()">
+         Cerrar
+      </button>
+    </div>
+</ng-template>
