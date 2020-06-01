@@ -54,14 +54,14 @@ export class LoginComponent implements OnInit {
   submittedRecoveryPassword1 = false;
   submittedRecoveryPassword2 = false;
   submittedRecoveryPassword3 = false;
-//  Administrador = false;
+  //  Administrador = false;
   error: string;
   email;
   codigo = '';
-/**
- * User  inicializacion
- */
-user = {
+  /**
+   * User  inicializacion
+   */
+  user = {
     userName: '',
     email: '',
     password: '',
@@ -104,7 +104,7 @@ user = {
   ngOnInit() { // COMPLETE
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
     this.registerForm = this.formBuilder.group(
       {
@@ -191,8 +191,8 @@ user = {
    * @returns
    * @memberof LoginComponent
    */
-  onSubmit() { // FIXME Cambiar nombre similar a onSubmitLogin // REVISADO
-    //  console.log('entra en summit');
+  onSubmitLogin() { // REVISADO
+    // console.log('entra en summit login*********');
     this.submittedLogin = true;
     if (this.loginForm.invalid) {
       return;
@@ -204,7 +204,7 @@ user = {
         (results) => {
           //   console.log('respuesta');
           //   console.log(results.body);
-          if (results.body.id === 0) {
+          if (results.body.id == 0) {
             // error
             //     console.log('id =0');
             this.information = results.body.rol;

@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submittedLogin && lfc.email.errors }" />
@@ -18,13 +18,13 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" formControlName="password" class="form-control" [ngClass]="{
+                        <input type="password" formControlName="password" class="form-control" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})" [ngClass]="{
                 'is-invalid': submittedLogin && lfc.password.errors
               }" />
                         <div *ngIf="submittedLogin && lfc.password.errors" class="invalid-feedback">
-                            <div *ngIf="lfc.password.errors.required">
-                                Password is required
-                            </div>
+                            <!-- <div *ngIf="lfc.password.errors.required"> -->
+                            Password es obligatorio minimo 6 caracteres con mayúscula, minuscula y numero
+                            <!-- </div> -->
                         </div>
                     </div>
                     <div class="form-group">
@@ -36,7 +36,7 @@
             </div>
             <div class="modal-footer">
                 <div class="form-group">
-                    <button [disabled]="loading" (click)="onSubmit()" class="btn btn-primary">
+                    <button [disabled]="loading" (click)="onSubmitLogin()" class="btn btn-primary">
             Login
           </button>
                     <button (click)="abrirRegisterModal(registerModal)" class="btn btn-info" style="margin-left: 10px;">
@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmitLogin()">
                     <div class="form-group">
                         <label for="userName">Nombre</label>
                         <input type="text" formControlName="userName" class="form-control" [ngClass]="{
@@ -164,7 +164,7 @@
             </div>
         </div>
         <div class="modal-body">
-            <form [formGroup]="recoveryPassword1Form" (ngSubmit)="onSubmit()">
+            <form [formGroup]="recoveryPassword1Form" (ngSubmit)="onSubmitLogin()">
                 <!-- <div class="form-group">
                             <label for="userName">User</label>
                             <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submittedRecoveryPassword1 && rpc1.userName.errors }" />
@@ -207,7 +207,7 @@
             </div>
         </div>
         <div class="modal-body">
-            <form [formGroup]="recoveryPassword2Form" (ngSubmit)="onSubmit()">
+            <form [formGroup]="recoveryPassword2Form" (ngSubmit)="onSubmitLogin()">
                 <div class="form-group">
                     <label for="codigo">Código</label>
                     <input type="text" formControlName="codigo" class="form-control" [ngClass]="{
@@ -248,7 +248,7 @@
             </div>
         </div>
         <div class="modal-body">
-            <form [formGroup]="recoveryPassword3Form" (ngSubmit)="onSubmit()">
+            <form [formGroup]="recoveryPassword3Form" (ngSubmit)="onSubmitLogin()">
                 <!-- <div class="form-group">
                     <label for="email">Email</label>
                     <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submittedRecoveryPassword3 && rpc3.email.errors }" />
@@ -319,7 +319,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form [formGroup]="recoveryPassword3Form" (ngSubmit)="onSubmit()">
+                <form [formGroup]="recoveryPassword3Form" (ngSubmit)="onSubmitLogin()">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" formControlName="email" class="form-control" [ngClass]="{
