@@ -186,32 +186,33 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * Valida al usuario
+   * Valida el formulario va a login(correo,pass)
    *
    * @returns
    * @memberof LoginComponent
    */
   onSubmitLogin() { // REVISADO
-    // console.log('entra en summit login*********');
     this.submittedLogin = true;
     if (this.loginForm.invalid) {
       return;
     }
+    const correo = this.lfc.email.value;
+    const pass = this.lfc.password.value;
+    this.login(correo, pass);
+  }
+
+  login(email, pass) {
     //    this.loading = true;
     this.authenticationService
-      .login(this.lfc.email.value, this.lfc.password.value)
+      .login(email, pass)
       .subscribe(
         (results) => {
-          //   console.log('respuesta');
-          //   console.log(results.body);
           if (results.body.id == 0) {
             // error
-            //     console.log('id =0');
             this.information = results.body.rol;
             this.openInformationWindows();
           } else {
             // no error
-            //    console.log('id distinto 0');
             this.router.navigate(['home']).then(() => {
               window.location.reload();
             });
@@ -305,7 +306,9 @@ export class LoginComponent implements OnInit {
   addUserDB() { // REVISADO
     this.submittedRegister = true;
     if (this.registerForm.invalid) {
-      console.log('formulario invalido');
+      return;
+    }
+    if (!this.comprobarRegistro()) {
       return;
     }
 
@@ -315,46 +318,33 @@ export class LoginComponent implements OnInit {
           this.information = 'El email ya existe \n';
           this.openInformationWindows();
         } else {
-          if (this.comprobarRegistro()) {
-            // REVIEW ¿No deberia estar al principio del metodo?
-            this.submittedRegister = true;
-            // console.log('registrando');
-            this.loading = true;
-            const data = {
-              id: '',
-              nombre: this.rfc.userName.value,
-              password: this.rfc.password.value,
-              email: this.rfc.email.value,
-              rol: 'admin',
-              tok: '',
-            };
-            //  console.log('data');
-            //  console.log(data);
-            this.userService.createUser(data).subscribe(
-              (results) => {
-                this.information = 'usuario Agregado';
-                //    console.log(results);
-                const cukiUser = JSON.stringify(results);
-                //   console.log(cukiUser);
-                this.cookieService.set('cuki', cukiUser, 1); // REVIEW ¿se usa cukiUser?
-                this.userService.currentUserType = data.rol;
-                this.registerModal.dismiss();
-                this.openInformationWindows();
-                this.router
-                  .navigate(['home'])
-                  .then(() => window.location.reload());
-              },
-              (error) => {
-                alert('usuario NO Agregado');
-                console.log(error);
-              }
-            );
-          }
+          this.loading = true;
+          const data = {
+            id: '',
+            nombre: this.rfc.userName.value,
+            password: this.rfc.password.value,
+            email: this.rfc.email.value,
+            rol: 'admin',
+            tok: '',
+          };
+          this.userService.createUser(data).subscribe(
+            (results) => {
+              this.information = 'usuario Agregado';
+              this.userService.currentUserType = data.rol;
+              this.registerModal.dismiss();
+              this.openInformationWindows();
+              this.login(this.rfc.email.value, this.rfc.password.value);
+            },
+            (error) => {
+              this.information = 'usuario NO Agregado';
+              this.openInformationWindows();
+            }
+          );
         }
       },
-      (error2) => {
-        alert('usuario NO Agregado');
-        console.log(error2);
+      (error1) => {
+        this.information = 'usuario NO Agregado';
+        this.openInformationWindows();
       }
     );
   }
@@ -471,33 +461,8 @@ export class LoginComponent implements OnInit {
             console.log('dentro de recoveryPassword3');
             this.recoveryPassword3 = false;
             this.modalService.dismissAll();
-            // VVVVVV  LOGEARSE AUTOMATICAMENTE AL CAMBIAR CONTRASEÑAVVVVVV /////// //TODO hacer un metodo, se ha hecho copia-pega
-            this.authenticationService
-              .login(this.rpc1.email.value, this.rpc3.password.value)
-              .subscribe(
-                (results) => {
-                  console.log('respuesta');
-                  console.log(results.body);
-                  if (results.body.id == 0) {
-                    // error
-                    console.log('id =0');
-                    this.information = results.body.rol;
-                    this.openInformationWindows();
-                  } else {
-                    // no error
-                    console.log('id distinto 0');
-                    this.router.navigate(['home']).then(() => {
-                      window.location.reload();
-                    });
-                  }
-                },
-                (error) => {
-                  this.information = 'No podemos logear al usuario';
-                  this.openInformationWindows();
-                }
-              );
-            // ^^^^  LOGEARSE AUTOMATICAMENTE ^^^^ ///////
-          } else {
+            this.login(this.rpc1.email.value, this.rpc3.password.value);
+            } else {
             this.closeRecoveryPassword3();
             this.loginOpen = true;
             //    this.modalService.dismissAll();
