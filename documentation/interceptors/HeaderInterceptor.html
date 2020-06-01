@@ -210,11 +210,11 @@ import { Injectable } from &#x27;@angular/core&#x27;;
 export class HeaderInterceptor implements HttpInterceptor {
   constructor() {}
 
-  intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
     request &#x3D; request.clone({
       withCredentials: true
   });
-  return next.handle(request);
+    return next.handle(request);
   }
 }
 </code></pre>

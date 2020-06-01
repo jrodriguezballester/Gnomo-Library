@@ -5,15 +5,15 @@
         </div>
     </div>
     <div class="card-body">
-         <form [formGroup]="authorForm" > 
-        <!-- <form name="authorForm">  -->
+        <form [formGroup]="authorForm">
+            <!-- <form name="authorForm">  -->
             <div class="form-group">
                 <label for="first_name">Nombre:</label>
                 <!-- <input type="text" class="form-control" formControlName="first_name" [(ngModel)]="autor.first_name" [ngClass]="{ 'is-invalid': submittedAuthor && afc.first_name.errors }" /> -->
-                <input type="text" class="form-control" formControlName="first_name"  [ngClass]="{ 'is-invalid': submittedAuthor && afc.first_name.errors }" />
-                
-            
-              
+                <input type="text" class="form-control" formControlName="first_name" [ngClass]="{ 'is-invalid': submittedAuthor && afc.first_name.errors }" />
+
+
+
                 <div *ngIf="submittedAuthor && afc.first_name.errors" class="invalid-feedback">
                     <div *ngIf="afc.first_name.errors.required">Nombre is required</div>
                 </div>
@@ -22,8 +22,8 @@
                 <label for="">Apellido:</label>
                 <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ 'is-invalid': submittedAuthor && afc.last_name.errors }" /> -->
                 <input class="form-control" type="text" formControlName="last_name" [ngClass]="{ 'is-invalid': submittedAuthor && afc.last_name.errors }" />
-               
-              
+
+
                 <div *ngIf="submittedAuthor && afc.last_name.errors" class="invalid-feedback">
                     <div *ngIf="afc.last_name.errors.required">Apellido is required</div>
                 </div>
@@ -33,8 +33,8 @@
                 <label for="">Nacionalidad:</label>
                 <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ 'is-invalid': submittedAuthor && afc.last_name.errors }" /> -->
                 <input class="form-control" type="text" formControlName="nacionalidad" [ngClass]="{ 'is-invalid': submittedAuthor && afc.nacionalidad.errors }" />
-               
-              
+
+
                 <div *ngIf="submittedAuthor && afc.nacionalidad.errors" class="invalid-feedback">
                     <div *ngIf="afc.nacionalidad.errors.required">Nacionalidad is required</div>
                 </div>
@@ -44,14 +44,12 @@
                 <label for="">Fecha de nacimiento:</label>
                 <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ 'is-invalid': submittedAuthor && afc.last_name.errors }" /> -->
                 <input type="date" class="form-control" formControlName="fecha" [ngClass]="{ 'is-invalid': submittedAuthor && afc.fecha.errors }" />
-               
-              
                 <div *ngIf="submittedAuthor && afc.fecha.errors" class="invalid-feedback">
                     <div *ngIf="afc.fecha.errors.required">Fecha de nacimiento is required</div>
                 </div>
             </div>
         </form>
-        <button type="button" (click)="Guardar()" class="btn btn-danger">Guardar</button>
+        <button type="button" (click)="Guardar()" class="btn btn-info">Guardar</button>
     </div>
 </div>
 <!-- VENTANA MODAL INFORMATIVA -->

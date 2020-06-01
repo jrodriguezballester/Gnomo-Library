@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user';
 import { Globals } from '../Global';
-import { apiUrl } from './../_helpers/configuracion';
+import { apiUrl } from '../configuracionAPI';
 
 
 
@@ -27,6 +27,6 @@ export class UserService {
   }
 
   devolverEmail(data) {
-    return this.http.get<any>(apiUrl + '/email/'+ data);
+    return this.http.get<any>(apiUrl + '/email/' + data);
   }
 }

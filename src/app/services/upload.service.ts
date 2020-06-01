@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { apiUrl } from './../_helpers/configuracion';
+import { apiUrl } from '../configuracionAPI';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class UploadService {
 
   upload(data) {
 console.log('servicio upload______ ', data);
-return this.http.post<any>(apiUrl + '/upload', data, { //this.urlServidor == apiUrl + '/upload'
+return this.http.post<any>(apiUrl + '/upload', data, { // this.urlServidor == apiUrl + '/upload'
       reportProgress: true,
       observe: 'events'
     }).pipe(map((event) => {

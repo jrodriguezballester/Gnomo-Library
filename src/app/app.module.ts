@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { HeaderInterceptor } from './header.interceptor';
-// import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +9,6 @@ import { FormsModule, NgControl, NgForm, ReactiveFormsModule } from '@angular/fo
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AddlibroComponent } from './libro/addlibro/addlibro.component';
-// import { EditarlibroComponent } from './libro/editarlibro/editarlibro.component';
 import { ListarComponent } from './libro/listar/listar.component';
 import { AddautorComponent } from './autor/addautor/addautor.component';
 import { ListarautoresComponent } from './autor/listarautores/listarautores.component';
@@ -31,17 +28,18 @@ import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SortPipe } from './pipes/sort.pipe';
+import { EncryptPipe } from './pipes/encrypt.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     AddlibroComponent,
- //   EditarlibroComponent,
     ListarComponent,
     AddautorComponent,
     ListarautoresComponent,
     LoginComponent,
     HomeComponent,
     SortPipe,
+    EncryptPipe,
   ],
   imports: [
     BrowserModule,

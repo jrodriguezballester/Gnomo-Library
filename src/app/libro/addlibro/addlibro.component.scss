@@ -16,7 +16,43 @@
     z-index: -1;
 }
 
+.inputfile--label {
+    border: 1px solid;
+}
+
 .inputfile--label:hover {
     cursor: pointer;
     opacity: 0.7;
+    border: 1px solid;
+    background-color: $orange-800;
 }
+
+.formulario {
+    display: grid;
+    grid-template-areas: "titulo autor" "isbn autor" "genero autor";
+    &__autor {
+        grid-area: autor;
+    }
+    &__titulo {
+        grid-area: titulo;
+    }
+    &__isbn {
+        grid-area: isbn;
+    }
+    &__genero {
+        grid-area: genero;
+    }
+    &__description {
+        grid-area: description;
+    }
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+.boton {
+    flex: auto;
+}
+
+.card-footer {}

@@ -22,7 +22,7 @@ import {
 } from '@angular/platform-browser'; // para imagen libro en local
 import { SecurityContext } from '@angular/compiler/src/core';
 import { UploadService } from 'src/app/services/upload.service';
-//import { checkLengthString } from 'src/app/_helpers';
+// import { checkLengthString } from 'src/app/_helpers';
 import {
   checkLengthString,
   checkIsbnFormat,
@@ -112,14 +112,13 @@ export class ListarComponent implements OnInit {
   oldFile: any;
   oldNombre: any;
   findForm: FormGroup;
-  buscarXautor=true;
+  buscarXautor = true;
   textoBusqueda = 'Nombre del Autor';
   authors: any;
   matriz;
   sublibros2: Book[];
   map: Map<any, any>;
   textoSelect;
-  textoSelect1 = '';
   opcion = 'autor';
   oldAuthor1: {
     // id: this.book.idAutor,
@@ -378,11 +377,11 @@ export class ListarComponent implements OnInit {
     const okFields = this.checkFields();
     // textoSelect;
     let idnuevo = this.book.idAutor;
-    console.log("textoSelect", this.textoSelect);
+    console.log('textoSelect', this.textoSelect);
     if (this.textoSelect != undefined) {
       idnuevo = this.textoSelect.substring(0, this.textoSelect.indexOf(' '));
-      console.log("oldAutor -------------------", this.book.idAutor);
-      console.log("idautornuevo", idnuevo);
+      console.log('oldAutor -------------------', this.book.idAutor);
+      console.log('idautornuevo', idnuevo);
      // idnuevo = this.book.idAutor;
     }
 
@@ -395,11 +394,11 @@ export class ListarComponent implements OnInit {
     if (okFields) {
       //    if (JSON.stringify(this.oldAuthor) === JSON.stringify(datosAutor)) {
       if (this.book.idAutor === idnuevo) {
-        console.log("igual*******************");
+        console.log('igual*******************');
         this.updateBookDB(this.book.idAutor);
       } else {
         this.book.id_author = idnuevo;
-             console.log("distinto*********");
+        console.log('distinto*********');
         //     this.authorService
         //       .modificarAuthor(datosAutor)
         //       .toPromise()
@@ -436,10 +435,10 @@ export class ListarComponent implements OnInit {
       nombre: this.ebfc.nombre.value,
       isbn: this.ebfc.isbn.value,
       genero: this.ebfc.genero.value,
-      descripcion:this.ebfc.descripcion.value,
+      descripcion: this.ebfc.descripcion.value,
       idAutor: valorId,
     };
-    console.log("datosLibro", datosLibro);
+    console.log('datosLibro', datosLibro);
     this.bookService
       .updateBook(datosLibro)
       .toPromise()
@@ -534,7 +533,7 @@ export class ListarComponent implements OnInit {
     this.modalService.open(this.modalInformation);
   }
   modalClose() {
-    this.modalService.dismissAll(); //close(this.modalInformation);
+    this.modalService.dismissAll(); // close(this.modalInformation);
 
     location.reload();
 }
@@ -582,10 +581,11 @@ export class ListarComponent implements OnInit {
       this.information =
         '-Has superado el límite de carácteres máximos permitidos en el campo nombre';
       res = false;
-    } else if (sololetras.test(this.book.first_name) == false) {
-      this.information = '-En el campo nombre solo se permiten letras';
-      res = false;
     }
+    // if (sololetras.test(this.book.first_name) == false) {
+    //   this.information = '-En el campo nombre solo se permiten letras';
+    //   res = false;
+    // }
 
     // if (this.book.last_name.length > 50) {
     //   this.information =
@@ -596,13 +596,13 @@ export class ListarComponent implements OnInit {
     //   res = false;
     // }
 
-    if(comprobarLetras(this.book.genero)!=''){
-      this.information = comprobarLetras(this.book.genero);
-      res = false;
-    }
+    // if (comprobarLetras(this.book.genero) != '') {
+    //   this.information = comprobarLetras(this.book.genero);
+    //   res = false;
+    // }
 
-    if(checkLengthString(this.book.genero,50,'genero')!=''){
-      this.information = checkLengthString(this.book.genero,50,'genero');
+    if (checkLengthString(this.book.genero, 50, 'genero') != '') {
+      this.information = checkLengthString(this.book.genero, 50, 'genero');
       res = false;
     }
 
@@ -702,6 +702,18 @@ export class ListarComponent implements OnInit {
     console.log(this.map);
   }
   sacarid() {
-    console.log("*************************tengo la id nueva")
+    let idnuevo;
+
+    if (this.textoSelect != undefined) {
+       idnuevo = this.textoSelect.substring(0, this.textoSelect.indexOf(' '));
+       console.log('idautornuevo:', idnuevo);
+    }
+    if (idnuevo == 1) {
+      console.log('entra******************************************************');
+      this.authorService.comesEditLibro = true;
+      this.modalService.dismissAll();
+      this.router.navigate(['addAutor']);
+    }
+
   }
 }

@@ -372,7 +372,7 @@
 import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { User } from &#x27;../models/user&#x27;;
 import { Globals } from &#x27;../Global&#x27;;
-import { apiUrl } from &#x27;./../_helpers/configuracion&#x27;;
+import { apiUrl } from &#x27;../configuracionAPI&#x27;;
 
 
 
@@ -397,7 +397,7 @@ export class UserService {
   }
 
   devolverEmail(data) {
-    return this.http.get&lt;any&gt;(apiUrl + &#x27;/email/&#x27;+ data);
+    return this.http.get&lt;any&gt;(apiUrl + &#x27;/email/&#x27; + data);
   }
 }
 </code></pre>

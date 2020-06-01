@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { Globals } from '../Global';
 import { User} from '../models/user';
-import { apiUrl } from './../_helpers/configuracion';
+import { apiUrl } from '../configuracionAPI';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -34,8 +34,8 @@ export class AuthenticationService {
    */
   login(email, password) {
 
-  console.log("entra en autenticationservice.login")
-   return this.http.post<any>(apiUrl + '/login', { email, password },{ observe: "response",  withCredentials: true,});
+  console.log('entra en autenticationservice.login');
+  return this.http.post<any>(apiUrl + '/login', { email, password }, { observe: 'response',  withCredentials: true, });
 
   }
 
@@ -58,10 +58,12 @@ export class AuthenticationService {
    * Si es true, se inicia el proceso de recuperación de contraseña.
    */
   recoveryPassword1(/* nombre, */ email) {
-    console.log("Dentro de autenticationService.recoveryPassword 1");
+    console.log('Dentro de autenticationService.recoveryPassword 1');
     // console.log(nombre);
     console.log(email);
-    return this.http.post<any>(apiUrl + '/recoveryPass1', {/*  nombre,  */email },{ observe: "response",  withCredentials: true,});
+    return this.http.post<any>(apiUrl + '/recoveryPass1', {/*  nombre,  */email }, { observe: 'response'});
+
+//    return this.http.post<any>(apiUrl + '/recoveryPass1', {/*  nombre,  */email },{ observe: "response",  withCredentials: true,});
   }
   /**
    *
@@ -71,9 +73,9 @@ export class AuthenticationService {
    */
 
   recoveryPassword2(codigo) {
-    console.log("Dentro de autenticationService.recoveryPassword 2");
-    console.log("Valor de codigo: " + codigo);
-    return this.http.post<any>(apiUrl + '/recoveryPass2', { codigo },{ observe: "response", withCredentials: true,});
+    console.log('Dentro de autenticationService.recoveryPassword 2');
+    console.log('Valor de codigo: ' + codigo);
+    return this.http.post<any>(apiUrl + '/recoveryPass2', { codigo }, { observe: 'response', withCredentials: true, });
   }
   /**
    *
@@ -81,14 +83,14 @@ export class AuthenticationService {
    * Se establece nueva contraseña.
    * Finaliza el proceso de recuperación de contraseña.
    */
-  recoveryPassword3(email,password) {
-    console.log("Dentro de autenticationService.recoveryPassword 3");
-    console.log("valor de password: " + password);
-    console.log("valor de email: " + email)
-    return this.http.post<any>(apiUrl + '/recoveryPass3', { email, password },{ observe: "response", withCredentials: true,});
+  recoveryPassword3(email, password) {
+    console.log('Dentro de autenticationService.recoveryPassword 3');
+    console.log('valor de password: ' + password);
+    console.log('valor de email: ' + email);
+    return this.http.post<any>(apiUrl + '/recoveryPass3', { email, password }, { observe: 'response', withCredentials: true, });
   }
   encontrarEmail(email) {
-    return this.http.post<any>(apiUrl + '/email', { email},{ observe: "response", withCredentials: true,});
+    return this.http.post<any>(apiUrl + '/email', { email}, { observe: 'response', withCredentials: true, });
 
  }
 

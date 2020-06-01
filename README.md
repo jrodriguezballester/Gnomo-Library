@@ -1,33 +1,30 @@
 # Gnomos_Librery
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+Este proyecto se ejecuta en local.
 
-## Development server
+## Inicio Angular
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- npm install
+- `ng serve` Navigar a `http://localhost:4200/`.
 
-## Code scaffolding
+## Inicio MySQL
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- En la carpeta Base Datos se encuentra el archivo newlibreria.sql que contiene la base de datos completa.
+- Ejecutarlo como una sentencia SQL o importarlo.
+- Si no funciona Crea una base de datos llamada newlibrary e importa las tablas
 
 ## GO
 
+- Opcion 1.- Copie la carpeta GO a su directorio de trabajo.
+- Opcion 2.- Modifica tu GoPath para que apunte a la carpeta GO
 - instalar librerias
-go get -u github.com/gorilla/mux
-go get -u github.com/gorilla/handlers
+`go get -u "github.com/dgrijalva/jwt-go"`
+`go get -u "github.com/go-sql-driver/mysql"`
+`go get -u "github.com/gorilla/handlers"`
+`go get -u "github.com/gorilla/mux"`
+
+- Ejecute `./main.exe`
+
+## Arrancar XAMPP
+- Arrancar Apache
+- Arrancar MySQL

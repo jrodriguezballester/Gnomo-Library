@@ -88,10 +88,6 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#apiUrl">apiUrl</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
                                 <a href="#imagenBookURL">imagenBookURL</a>
                             </li>
                         </ul>
@@ -118,39 +114,6 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="apiUrl"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Static</span>
-                            apiUrl</b>
-                            <a href="#apiUrl"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x60;http://localhost:8000/api&#x60;</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/Global.ts:20</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>ruta del servidor</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="imagenBookURL"></a>
                         <span class="name">
                             <b>
@@ -173,7 +136,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/Global.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/Global.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -204,6 +167,11 @@ modificar para cada ordenador</p>
 @Injectable()
 
 export class Globals {
+  /**
+   * Ruta imagenes libros
+   * modificar para cada ordenador
+   */
+  static imagenBookURL &#x3D; &#x27;/assets/images/book/&#x27;;
 
 
   /**
@@ -212,12 +180,8 @@ export class Globals {
    * @static
    * @memberof Globals
    */
-  static apiUrl &#x3D; &#x60;http://localhost:8000/api&#x60;;
-  /**
-   * Ruta imagenes libros
-   * modificar para cada ordenador
-   */
-  static imagenBookURL &#x3D; &#x27;/assets/images/book/&#x27;;
+ // static apiUrl &#x3D; &#x60;http://localhost:8000/api&#x60;;
+
 }
 </code></pre>
     </div>

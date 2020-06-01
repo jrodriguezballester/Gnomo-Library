@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'sort'
 })
+
 export class SortPipe implements PipeTransform {
 
    transform(array: Array<any>, args: string): Array<any> {
@@ -15,5 +16,5 @@ export class SortPipe implements PipeTransform {
             return 0;
         }
     });
-}
+  }
 }

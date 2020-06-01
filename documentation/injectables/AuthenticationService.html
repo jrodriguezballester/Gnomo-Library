@@ -226,8 +226,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">src/app/services/authentication.service.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/services/authentication.service.ts:92</a></div>
                 </td>
             </tr>
 
@@ -487,8 +487,8 @@ Si es true, se inicia el proceso de recuperación de contraseña.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">src/app/services/authentication.service.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/services/authentication.service.ts:75</a></div>
                 </td>
             </tr>
 
@@ -559,8 +559,8 @@ Si es true, continuamos el proceso de recuperación de contraseña.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">src/app/services/authentication.service.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/app/services/authentication.service.ts:86</a></div>
                 </td>
             </tr>
 
@@ -722,7 +722,7 @@ import { map } from &#x27;rxjs/operators&#x27;;
 import { CookieService } from &#x27;ngx-cookie-service&#x27;;
 import { Globals } from &#x27;../Global&#x27;;
 import { User} from &#x27;../models/user&#x27;;
-import { apiUrl } from &#x27;./../_helpers/configuracion&#x27;;
+import { apiUrl } from &#x27;../configuracionAPI&#x27;;
 
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class AuthenticationService {
@@ -751,8 +751,8 @@ export class AuthenticationService {
    */
   login(email, password) {
 
-  console.log(&quot;entra en autenticationservice.login&quot;)
-   return this.http.post&lt;any&gt;(apiUrl + &#x27;/login&#x27;, { email, password },{ observe: &quot;response&quot;,  withCredentials: true,});
+  console.log(&#x27;entra en autenticationservice.login&#x27;);
+  return this.http.post&lt;any&gt;(apiUrl + &#x27;/login&#x27;, { email, password }, { observe: &#x27;response&#x27;,  withCredentials: true, });
 
   }
 
@@ -775,10 +775,12 @@ export class AuthenticationService {
    * Si es true, se inicia el proceso de recuperación de contraseña.
    */
   recoveryPassword1(/* nombre, */ email) {
-    console.log(&quot;Dentro de autenticationService.recoveryPassword 1&quot;);
+    console.log(&#x27;Dentro de autenticationService.recoveryPassword 1&#x27;);
     // console.log(nombre);
     console.log(email);
-    return this.http.post&lt;any&gt;(apiUrl + &#x27;/recoveryPass1&#x27;, {/*  nombre,  */email },{ observe: &quot;response&quot;,  withCredentials: true,});
+    return this.http.post&lt;any&gt;(apiUrl + &#x27;/recoveryPass1&#x27;, {/*  nombre,  */email }, { observe: &#x27;response&#x27;});
+
+//    return this.http.post&lt;any&gt;(apiUrl + &#x27;/recoveryPass1&#x27;, {/*  nombre,  */email },{ observe: &quot;response&quot;,  withCredentials: true,});
   }
   /**
    *
@@ -788,9 +790,9 @@ export class AuthenticationService {
    */
 
   recoveryPassword2(codigo) {
-    console.log(&quot;Dentro de autenticationService.recoveryPassword 2&quot;);
-    console.log(&quot;Valor de codigo: &quot; + codigo);
-    return this.http.post&lt;any&gt;(apiUrl + &#x27;/recoveryPass2&#x27;, { codigo },{ observe: &quot;response&quot;, withCredentials: true,});
+    console.log(&#x27;Dentro de autenticationService.recoveryPassword 2&#x27;);
+    console.log(&#x27;Valor de codigo: &#x27; + codigo);
+    return this.http.post&lt;any&gt;(apiUrl + &#x27;/recoveryPass2&#x27;, { codigo }, { observe: &#x27;response&#x27;, withCredentials: true, });
   }
   /**
    *
@@ -798,14 +800,14 @@ export class AuthenticationService {
    * Se establece nueva contraseña.
    * Finaliza el proceso de recuperación de contraseña.
    */
-  recoveryPassword3(email,password) {
-    console.log(&quot;Dentro de autenticationService.recoveryPassword 3&quot;);
-    console.log(&quot;valor de password: &quot; + password);
-    console.log(&quot;valor de email: &quot; + email)
-    return this.http.post&lt;any&gt;(apiUrl + &#x27;/recoveryPass3&#x27;, { email, password },{ observe: &quot;response&quot;, withCredentials: true,});
+  recoveryPassword3(email, password) {
+    console.log(&#x27;Dentro de autenticationService.recoveryPassword 3&#x27;);
+    console.log(&#x27;valor de password: &#x27; + password);
+    console.log(&#x27;valor de email: &#x27; + email);
+    return this.http.post&lt;any&gt;(apiUrl + &#x27;/recoveryPass3&#x27;, { email, password }, { observe: &#x27;response&#x27;, withCredentials: true, });
   }
   encontrarEmail(email) {
-    return this.http.post&lt;any&gt;(apiUrl + &#x27;/email&#x27;, { email},{ observe: &quot;response&quot;, withCredentials: true,});
+    return this.http.post&lt;any&gt;(apiUrl + &#x27;/email&#x27;, { email}, { observe: &#x27;response&#x27;, withCredentials: true, });
 
  }
 

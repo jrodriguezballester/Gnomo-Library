@@ -652,7 +652,7 @@
 import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { Author } from &#x27;../models/author&#x27;;
 import { Globals } from &#x27;../Global&#x27;;
-import { apiUrl } from &#x27;./../_helpers/configuracion&#x27;;
+import { apiUrl } from &#x27;../configuracionAPI&#x27;;
 
 
 
@@ -705,8 +705,8 @@ export class AuthorService {
     const data &#x3D; {
       first_name: datosAutor.first_name,
       last_name:  datosAutor.last_name,
-      nacionalidad:datosAutor.nacionalidad,
-      fecha:datosAutor.fecha,
+      nacionalidad: datosAutor.nacionalidad,
+      fecha: datosAutor.fecha,
     };
     console.log(&#x27;mandando datos&#x27;);
     console.log(data);

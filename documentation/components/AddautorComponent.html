@@ -351,8 +351,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="196"
-                            class="link-to-prism">src/app/autor/addautor/addautor.component.ts:196</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">src/app/autor/addautor/addautor.component.ts:194</a></div>
                 </td>
             </tr>
 
@@ -433,8 +433,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="154"
-                            class="link-to-prism">src/app/autor/addautor/addautor.component.ts:154</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">src/app/autor/addautor/addautor.component.ts:152</a></div>
                 </td>
             </tr>
 
@@ -511,8 +511,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="218"
-                            class="link-to-prism">src/app/autor/addautor/addautor.component.ts:218</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="216"
+                            class="link-to-prism">src/app/autor/addautor/addautor.component.ts:216</a></div>
                 </td>
             </tr>
 
@@ -592,8 +592,8 @@
                             <i>Default value : </i><code>{
     first_name: &#x27;&#x27;,
     last_name: &#x27;&#x27;,
-    nacionalidad:&#x27;&#x27;,
-    fecha:&#x27;&#x27;,
+    nacionalidad: &#x27;&#x27;,
+    fecha: &#x27;&#x27;,
   }</code>
                         </td>
                     </tr>
@@ -880,8 +880,8 @@ export class AddautorComponent implements OnInit {
   autor &#x3D; {
     first_name: &#x27;&#x27;,
     last_name: &#x27;&#x27;,
-    nacionalidad:&#x27;&#x27;,
-    fecha:&#x27;&#x27;,
+    nacionalidad: &#x27;&#x27;,
+    fecha: &#x27;&#x27;,
   };
   /**
    * Mensaje en ventana modal
@@ -937,52 +937,50 @@ export class AddautorComponent implements OnInit {
    * @memberof AddautorComponent
    */
 
-  comprobacionFinal(){
-    console.log(&quot;entraaa rafa&quot;);
-    console.log(this.autor)
-    var res&#x3D;true;
-    var letras : RegExp &#x3D; /^[A-Za-z\s]+$/g;
+  comprobacionFinal() {
+    console.log(&#x27;entraa rafa&#x27;);
+    console.log(this.autor);
+    let res &#x3D; true;
+    const letras: RegExp &#x3D; /^[A-Za-z\s]+$/g;
 
-    var hoy &#x3D; new Date();
-    var fecha &#x3D; new Date(this.afc.fecha.value);
+    const hoy &#x3D; new Date();
+    const fecha &#x3D; new Date(this.afc.fecha.value);
 
-    console.log(this.afc.first_name.value)
-    console.log(this.afc.last_name.value)
-    console.log(this.afc.nacionalidad.value)
-    console.log(this.afc.fecha.value)
-    console.log(&quot;valor de fecha: &quot; + fecha);
-    console.log(&quot;valor de hoy: &quot; + hoy);
+    console.log(this.afc.first_name.value);
+    console.log(this.afc.last_name.value);
+    console.log(this.afc.nacionalidad.value);
+    console.log(this.afc.fecha.value);
+    console.log(&#x27;valor de fecha: &#x27; + fecha);
+    console.log(&#x27;valor de hoy: &#x27; + hoy);
 
-    if((this.afc.first_name.value&#x3D;&#x3D;&quot;&quot;) || (this.afc.last_name.value&#x3D;&#x3D;&quot;&quot;) ||(this.afc.nacionalidad.value &#x3D;&#x3D;&quot;&quot;) || (this.afc.fecha.value&#x3D;&#x3D;&quot;&quot;)){
-      this.information &#x3D; &quot;-Asegurese de estar rellenando todos los campos&quot;;
-      res&#x3D;false;
-    }
-    else{
-
-        if(this.afc.first_name.value.length&gt;50){
-          this.information &#x3D; &quot;-Has superado el límite de carácteres máximos en el campo nombre&quot;;
-          res&#x3D;false;
-        }else if(letras.test(this.afc.first_name.value)&#x3D;&#x3D;false){
-          this.information &#x3D; &quot;-En el campo nombre solo se permiten letras&quot;;
-          res&#x3D;false;
+    if ((this.afc.first_name.value &#x3D;&#x3D; &#x27;&#x27;) || (this.afc.last_name.value &#x3D;&#x3D; &#x27;&#x27;) || (this.afc.nacionalidad.value &#x3D;&#x3D; &#x27;&#x27;) || (this.afc.fecha.value &#x3D;&#x3D; &#x27;&#x27;)) {
+      this.information &#x3D; &#x27;-Asegurese de estar rellenando todos los campos&#x27;;
+      res &#x3D; false;
+    } else {
+        if (this.afc.first_name.value.length &gt; 50) {
+          this.information &#x3D; &#x27;-Has superado el límite de carácteres máximos en el campo nombre&#x27;;
+          res &#x3D; false;
+        } else if (letras.test(this.afc.first_name.value) &#x3D;&#x3D; false) {
+          this.information &#x3D; &#x27;-En el campo nombre solo se permiten letras&#x27;;
+          res &#x3D; false;
         }
         console.log(letras.test(this.afc.first_name.value));
-        if (this.afc.last_name.value.length&gt;50){
-          this.information &#x3D; &quot;-Has superado el límite de carácteres máximos en el campo apellido&quot;;
-          res&#x3D;false;
-        }else if(letras.test(this.afc.last_name.value)&#x3D;&#x3D;false){
-          this.information &#x3D; &quot;-En el campo apellido solo se permiten letras&quot;;
-          res&#x3D;false;
+        if (this.afc.last_name.value.length &gt; 50) {
+          this.information &#x3D; &#x27;-Has superado el límite de carácteres máximos en el campo apellido&#x27;;
+          res &#x3D; false;
+        } else if (letras.test(this.afc.last_name.value) &#x3D;&#x3D; false) {
+          this.information &#x3D; &#x27;-En el campo apellido solo se permiten letras&#x27;;
+          res &#x3D; false;
         }
 
-        if(fecha.getTime()&gt;hoy.getTime()){
-          this.information &#x3D; &quot;-Asegurese de estar introduciendo una fecha válida&quot;;
-          res&#x3D;false;
+        if (fecha.getTime() &gt; hoy.getTime()) {
+          this.information &#x3D; &#x27;-Asegurese de estar introduciendo una fecha válida&#x27;;
+          res &#x3D; false;
        }
 
     }
 
-    if(!res){
+    if (!res) {
       this.openInformationWindows();
     }
 
@@ -990,7 +988,7 @@ export class AddautorComponent implements OnInit {
    }
 
   Guardar() {
-    if(this.comprobacionFinal()){
+    if (this.comprobacionFinal()) {
       console.log(this.authorForm.controls);
       this.submittedAuthor &#x3D; true;
       if (this.authorForm.invalid) {
@@ -1001,8 +999,8 @@ export class AddautorComponent implements OnInit {
       const data &#x3D; {
         first_name: this.afc.first_name.value,
         last_name: this.afc.last_name.value,
-        nacionalidad:this.afc.nacionalidad.value,
-        fecha:this.afc.fecha.value,
+        nacionalidad: this.afc.nacionalidad.value,
+        fecha: this.afc.fecha.value,
       };
 
       // controlamos que no este repetido.
@@ -1068,15 +1066,15 @@ export class AddautorComponent implements OnInit {
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;card-body&quot;&gt;
-         &lt;form [formGroup]&#x3D;&quot;authorForm&quot; &gt; 
-        &lt;!-- &lt;form name&#x3D;&quot;authorForm&quot;&gt;  --&gt;
+        &lt;form [formGroup]&#x3D;&quot;authorForm&quot;&gt;
+            &lt;!-- &lt;form name&#x3D;&quot;authorForm&quot;&gt;  --&gt;
             &lt;div class&#x3D;&quot;form-group&quot;&gt;
                 &lt;label for&#x3D;&quot;first_name&quot;&gt;Nombre:&lt;/label&gt;
                 &lt;!-- &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;first_name&quot; [(ngModel)]&#x3D;&quot;autor.first_name&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submittedAuthor &amp;&amp; afc.first_name.errors }&quot; /&gt; --&gt;
-                &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;first_name&quot;  [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submittedAuthor &amp;&amp; afc.first_name.errors }&quot; /&gt;
-                
-            
-              
+                &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;first_name&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submittedAuthor &amp;&amp; afc.first_name.errors }&quot; /&gt;
+
+
+
                 &lt;div *ngIf&#x3D;&quot;submittedAuthor &amp;&amp; afc.first_name.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
                     &lt;div *ngIf&#x3D;&quot;afc.first_name.errors.required&quot;&gt;Nombre is required&lt;/div&gt;
                 &lt;/div&gt;
@@ -1085,8 +1083,8 @@ export class AddautorComponent implements OnInit {
                 &lt;label for&#x3D;&quot;&quot;&gt;Apellido:&lt;/label&gt;
                 &lt;!-- &lt;input class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;last_name&quot; required [(ngModel)]&#x3D;&quot;autor.last_name&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submittedAuthor &amp;&amp; afc.last_name.errors }&quot; /&gt; --&gt;
                 &lt;input class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;last_name&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submittedAuthor &amp;&amp; afc.last_name.errors }&quot; /&gt;
-               
-              
+
+
                 &lt;div *ngIf&#x3D;&quot;submittedAuthor &amp;&amp; afc.last_name.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
                     &lt;div *ngIf&#x3D;&quot;afc.last_name.errors.required&quot;&gt;Apellido is required&lt;/div&gt;
                 &lt;/div&gt;
@@ -1096,8 +1094,8 @@ export class AddautorComponent implements OnInit {
                 &lt;label for&#x3D;&quot;&quot;&gt;Nacionalidad:&lt;/label&gt;
                 &lt;!-- &lt;input class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;last_name&quot; required [(ngModel)]&#x3D;&quot;autor.last_name&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submittedAuthor &amp;&amp; afc.last_name.errors }&quot; /&gt; --&gt;
                 &lt;input class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;nacionalidad&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submittedAuthor &amp;&amp; afc.nacionalidad.errors }&quot; /&gt;
-               
-              
+
+
                 &lt;div *ngIf&#x3D;&quot;submittedAuthor &amp;&amp; afc.nacionalidad.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
                     &lt;div *ngIf&#x3D;&quot;afc.nacionalidad.errors.required&quot;&gt;Nacionalidad is required&lt;/div&gt;
                 &lt;/div&gt;
@@ -1107,14 +1105,12 @@ export class AddautorComponent implements OnInit {
                 &lt;label for&#x3D;&quot;&quot;&gt;Fecha de nacimiento:&lt;/label&gt;
                 &lt;!-- &lt;input class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;last_name&quot; required [(ngModel)]&#x3D;&quot;autor.last_name&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submittedAuthor &amp;&amp; afc.last_name.errors }&quot; /&gt; --&gt;
                 &lt;input type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;fecha&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submittedAuthor &amp;&amp; afc.fecha.errors }&quot; /&gt;
-               
-              
                 &lt;div *ngIf&#x3D;&quot;submittedAuthor &amp;&amp; afc.fecha.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
                     &lt;div *ngIf&#x3D;&quot;afc.fecha.errors.required&quot;&gt;Fecha de nacimiento is required&lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/form&gt;
-        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;Guardar()&quot; class&#x3D;&quot;btn btn-danger&quot;&gt;Guardar&lt;/button&gt;
+        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;Guardar()&quot; class&#x3D;&quot;btn btn-info&quot;&gt;Guardar&lt;/button&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;!-- VENTANA MODAL INFORMATIVA --&gt;
@@ -1176,7 +1172,7 @@ export class AddautorComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container pt-5 mt-5">    <div class="card">        <div class="card-header">            <h3>Agregar Autor</h3>        </div>    </div>    <div class="card-body">         <form [formGroup]="authorForm" >         <!-- <form name="authorForm">  -->            <div class="form-group">                <label for="first_name">Nombre:</label>                <!-- <input type="text" class="form-control" formControlName="first_name" [(ngModel)]="autor.first_name" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.first_name.errors }" /> -->                <input type="text" class="form-control" formControlName="first_name"  [ngClass]="{ \'is-invalid\': submittedAuthor && afc.first_name.errors }" />                                                          <div *ngIf="submittedAuthor && afc.first_name.errors" class="invalid-feedback">                    <div *ngIf="afc.first_name.errors.required">Nombre is required</div>                </div>            </div>            <div class="form-group">                <label for="">Apellido:</label>                <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.last_name.errors }" /> -->                <input class="form-control" type="text" formControlName="last_name" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.last_name.errors }" />                                             <div *ngIf="submittedAuthor && afc.last_name.errors" class="invalid-feedback">                    <div *ngIf="afc.last_name.errors.required">Apellido is required</div>                </div>            </div>            <div class="form-group">                <label for="">Nacionalidad:</label>                <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.last_name.errors }" /> -->                <input class="form-control" type="text" formControlName="nacionalidad" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.nacionalidad.errors }" />                                             <div *ngIf="submittedAuthor && afc.nacionalidad.errors" class="invalid-feedback">                    <div *ngIf="afc.nacionalidad.errors.required">Nacionalidad is required</div>                </div>            </div>            <div class="form-group">                <label for="">Fecha de nacimiento:</label>                <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.last_name.errors }" /> -->                <input type="date" class="form-control" formControlName="fecha" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.fecha.errors }" />                                             <div *ngIf="submittedAuthor && afc.fecha.errors" class="invalid-feedback">                    <div *ngIf="afc.fecha.errors.required">Fecha de nacimiento is required</div>                </div>            </div>        </form>        <button type="button" (click)="Guardar()" class="btn btn-danger">Guardar</button>    </div></div><!-- VENTANA MODAL INFORMATIVA --><ng-template #modalInformation let-modal>    <div class="modal-header">        <h4 class="modal-title" id="modal-basic-title">Gnomo`s Librery</h4>        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss(\'Cross click\')"><span aria-hidden="true">&times;</span></button>    </div>    <div class="modal-body">        <p id="error">{{information}}</p>    </div>    <div class="modal-footer">        <button type="button" class="btn btn-outline-dark" (click)="modal.close()">         Cerrar      </button>    </div></ng-template></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container pt-5 mt-5">    <div class="card">        <div class="card-header">            <h3>Agregar Autor</h3>        </div>    </div>    <div class="card-body">        <form [formGroup]="authorForm">            <!-- <form name="authorForm">  -->            <div class="form-group">                <label for="first_name">Nombre:</label>                <!-- <input type="text" class="form-control" formControlName="first_name" [(ngModel)]="autor.first_name" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.first_name.errors }" /> -->                <input type="text" class="form-control" formControlName="first_name" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.first_name.errors }" />                <div *ngIf="submittedAuthor && afc.first_name.errors" class="invalid-feedback">                    <div *ngIf="afc.first_name.errors.required">Nombre is required</div>                </div>            </div>            <div class="form-group">                <label for="">Apellido:</label>                <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.last_name.errors }" /> -->                <input class="form-control" type="text" formControlName="last_name" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.last_name.errors }" />                <div *ngIf="submittedAuthor && afc.last_name.errors" class="invalid-feedback">                    <div *ngIf="afc.last_name.errors.required">Apellido is required</div>                </div>            </div>            <div class="form-group">                <label for="">Nacionalidad:</label>                <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.last_name.errors }" /> -->                <input class="form-control" type="text" formControlName="nacionalidad" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.nacionalidad.errors }" />                <div *ngIf="submittedAuthor && afc.nacionalidad.errors" class="invalid-feedback">                    <div *ngIf="afc.nacionalidad.errors.required">Nacionalidad is required</div>                </div>            </div>            <div class="form-group">                <label for="">Fecha de nacimiento:</label>                <!-- <input class="form-control" formControlName="last_name" required [(ngModel)]="autor.last_name" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.last_name.errors }" /> -->                <input type="date" class="form-control" formControlName="fecha" [ngClass]="{ \'is-invalid\': submittedAuthor && afc.fecha.errors }" />                <div *ngIf="submittedAuthor && afc.fecha.errors" class="invalid-feedback">                    <div *ngIf="afc.fecha.errors.required">Fecha de nacimiento is required</div>                </div>            </div>        </form>        <button type="button" (click)="Guardar()" class="btn btn-info">Guardar</button>    </div></div><!-- VENTANA MODAL INFORMATIVA --><ng-template #modalInformation let-modal>    <div class="modal-header">        <h4 class="modal-title" id="modal-basic-title">Gnomo`s Librery</h4>        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss(\'Cross click\')"><span aria-hidden="true">&times;</span></button>    </div>    <div class="modal-body">        <p id="error">{{information}}</p>    </div>    <div class="modal-footer">        <button type="button" class="btn btn-outline-dark" (click)="modal.close()">         Cerrar      </button>    </div></ng-template></div>'
     var COMPONENTS = [{'name': 'AddautorComponent', 'selector': 'app-addautor'},{'name': 'AddlibroComponent', 'selector': 'app-addlibro'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListarautoresComponent', 'selector': 'app-listarautores'},{'name': 'ListarComponent', 'selector': 'app-listar'},{'name': 'LoginComponent', 'selector': 'app-login'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AddautorComponent'};

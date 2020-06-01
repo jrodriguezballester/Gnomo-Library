@@ -191,7 +191,7 @@ user = {
    * @returns
    * @memberof LoginComponent
    */
-  onSubmit() {// FIXME Cambiar nombre similar a loginOnClick // REVISADO
+  onSubmit() { // FIXME Cambiar nombre similar a onSubmitLogin // REVISADO
     //  console.log('entra en summit');
     this.submittedLogin = true;
     if (this.loginForm.invalid) {
@@ -303,6 +303,7 @@ user = {
    * @memberof LoginComponent
    */
   addUserDB() { // REVISADO
+    this.submittedRegister = true;
     if (this.registerForm.invalid) {
       console.log('formulario invalido');
       return;

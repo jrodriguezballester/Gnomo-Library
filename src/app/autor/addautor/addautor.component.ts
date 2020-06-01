@@ -42,8 +42,8 @@ export class AddautorComponent implements OnInit {
   autor = {
     first_name: '',
     last_name: '',
-    nacionalidad:'',
-    fecha:'',
+    nacionalidad: '',
+    fecha: '',
   };
   /**
    * Mensaje en ventana modal
@@ -77,6 +77,7 @@ export class AddautorComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('óninit add');
     this.authorForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
@@ -99,52 +100,50 @@ export class AddautorComponent implements OnInit {
    * @memberof AddautorComponent
    */
 
-  comprobacionFinal(){
-    console.log("entraaa rafa");
-    console.log(this.autor)
-    var res=true;
-    var letras : RegExp = /^[A-Za-z\s]+$/g;
+  comprobacionFinal() {
+    console.log('entraa rafa');
+    console.log(this.autor);
+    let res = true;
+    const letras: RegExp = /^[A-Za-z\s]+$/g;
 
-    var hoy = new Date();
-    var fecha = new Date(this.afc.fecha.value);
+    const hoy = new Date();
+    const fecha = new Date(this.afc.fecha.value);
 
-    console.log(this.afc.first_name.value)
-    console.log(this.afc.last_name.value)
-    console.log(this.afc.nacionalidad.value)
-    console.log(this.afc.fecha.value)
-    console.log("valor de fecha: " + fecha);
-    console.log("valor de hoy: " + hoy);
+    console.log(this.afc.first_name.value);
+    console.log(this.afc.last_name.value);
+    console.log(this.afc.nacionalidad.value);
+    console.log(this.afc.fecha.value);
+    console.log('valor de fecha: ' + fecha);
+    console.log('valor de hoy: ' + hoy);
 
-    if((this.afc.first_name.value=="") || (this.afc.last_name.value=="") ||(this.afc.nacionalidad.value =="") || (this.afc.fecha.value=="")){
-      this.information = "-Asegurese de estar rellenando todos los campos";
-      res=false;
-    }
-    else{
-
-        if(this.afc.first_name.value.length>50){
-          this.information = "-Has superado el límite de carácteres máximos en el campo nombre";
-          res=false;
-        }else if(letras.test(this.afc.first_name.value)==false){
-          this.information = "-En el campo nombre solo se permiten letras";
-          res=false;
+    if ((this.afc.first_name.value == '') || (this.afc.last_name.value == '') || (this.afc.nacionalidad.value == '') || (this.afc.fecha.value == '')) {
+      this.information = '-Asegurese de estar rellenando todos los campos';
+      res = false;
+    } else {
+        if (this.afc.first_name.value.length > 50) {
+          this.information = '-Has superado el límite de carácteres máximos en el campo nombre';
+          res = false;
+        } else if (letras.test(this.afc.first_name.value) == false) {
+          this.information = '-En el campo nombre solo se permiten letras';
+          res = false;
         }
         console.log(letras.test(this.afc.first_name.value));
-        if (this.afc.last_name.value.length>50){
-          this.information = "-Has superado el límite de carácteres máximos en el campo apellido";
-          res=false;
-        }else if(letras.test(this.afc.last_name.value)==false){
-          this.information = "-En el campo apellido solo se permiten letras";
-          res=false;
+        if (this.afc.last_name.value.length > 50) {
+          this.information = '-Has superado el límite de carácteres máximos en el campo apellido';
+          res = false;
+        } else if (letras.test(this.afc.last_name.value) == false) {
+          this.information = '-En el campo apellido solo se permiten letras';
+          res = false;
         }
 
-        if(fecha.getTime()>hoy.getTime()){
-          this.information = "-Asegurese de estar introduciendo una fecha válida";
-          res=false;
+        if (fecha.getTime() > hoy.getTime()) {
+          this.information = '-Asegurese de estar introduciendo una fecha válida';
+          res = false;
        }
 
     }
 
-    if(!res){
+    if (!res) {
       this.openInformationWindows();
     }
 
@@ -152,7 +151,7 @@ export class AddautorComponent implements OnInit {
    }
 
   Guardar() {
-    if(this.comprobacionFinal()){
+    if (this.comprobacionFinal()) {
       console.log(this.authorForm.controls);
       this.submittedAuthor = true;
       if (this.authorForm.invalid) {
@@ -163,8 +162,8 @@ export class AddautorComponent implements OnInit {
       const data = {
         first_name: this.afc.first_name.value,
         last_name: this.afc.last_name.value,
-        nacionalidad:this.afc.nacionalidad.value,
-        fecha:this.afc.fecha.value,
+        nacionalidad: this.afc.nacionalidad.value,
+        fecha: this.afc.fecha.value,
       };
 
       // controlamos que no este repetido.
@@ -194,12 +193,20 @@ export class AddautorComponent implements OnInit {
    * Enruta en segun el valor de comesAddLibro
    */
   backRoute() {
+    console.log('back route');
+    console.log('add', this.authorService.comesAddLibro);
+    console.log('edit', this.authorService.comesEditLibro);
+
     if (this.authorService.comesAddLibro) {
       this.authorService.comesAddLibro = false;
       this.router.navigate(['addLibro']);
-    } else {
+    } else if (this.authorService.comesEditLibro) {
+      this.authorService.comesEditLibro = false;
+      this.router.navigate(['libros']);
+    } else    {
       this.router.navigate(['autores']);
     }
+
   }
 
   // checkForm() {

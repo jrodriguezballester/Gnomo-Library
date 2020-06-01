@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Author } from '../models/author';
 import { Globals } from '../Global';
-import { apiUrl } from './../_helpers/configuracion';
+import { apiUrl } from '../configuracionAPI';
 
 
 
@@ -15,6 +15,7 @@ export class AuthorService {
   id: number;
 
   comesAddLibro = false;
+  comesEditLibro = false;
 
   constructor(private http: HttpClient) {}
 
@@ -55,8 +56,8 @@ export class AuthorService {
     const data = {
       first_name: datosAutor.first_name,
       last_name:  datosAutor.last_name,
-      nacionalidad:datosAutor.nacionalidad,
-      fecha:datosAutor.fecha,
+      nacionalidad: datosAutor.nacionalidad,
+      fecha: datosAutor.fecha,
     };
     console.log('mandando datos');
     console.log(data);

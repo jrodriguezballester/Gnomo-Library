@@ -9,6 +9,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 
 export class Globals {
+  /**
+   * Ruta imagenes libros
+   * modificar para cada ordenador
+   */
+  static imagenBookURL = '/assets/images/book/';
 
 
   /**
@@ -17,10 +22,6 @@ export class Globals {
    * @static
    * @memberof Globals
    */
-  static apiUrl = `http://localhost:8000/api`;
-  /**
-   * Ruta imagenes libros
-   * modificar para cada ordenador
-   */
-  static imagenBookURL = '/assets/images/book/';
+ // static apiUrl = `http://localhost:8000/api`;
+
 }

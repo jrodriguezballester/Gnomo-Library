@@ -47,7 +47,7 @@ export class AddlibroComponent implements OnInit {
     private uploadService: UploadService
   ) {}
   previewURL = null;
-  previewURL1 = "./../../../assets/images/book/2121212121.jpg";
+  previewURL1 = './../../../assets/images/book/2121212121.jpg';
 
   imgBook = null;
   // imgBook = null;
@@ -333,6 +333,7 @@ export class AddlibroComponent implements OnInit {
    */
   optionNewAuthor() {
     //  console.log('ir a añadir autor');
+
     this.authorService.comesAddLibro = true;
     this.router.navigate(['agregarAutores']);
   }
@@ -365,7 +366,7 @@ export class AddlibroComponent implements OnInit {
         this.uploadFile();  ////// no es su sitio
         this.message = 'Libro añadido';
         this.openInformationWindows();
-        this.router.navigate(['libros']);
+        // this.router.navigate(['libros']);
 
       },
       (error) => {
@@ -448,6 +449,7 @@ export class AddlibroComponent implements OnInit {
    * @memberof AddlibroComponent
    */
   changeAuthor(event) {
+    console.log('cambiar autor');
     this.id_author = this.bookForm.value.selectedAuthor.id;
     console.log('changeAuthor');
     console.log(this.bookForm.value.selectedAuthor.id);
@@ -458,6 +460,7 @@ export class AddlibroComponent implements OnInit {
       console.log(this.bookForm.value.selectedAuthor.id);
       localStorage.setItem('titulo', this.bookForm.value.title);
       localStorage.setItem('isbn', this.bookForm.value.isbn);
+      this.modalService.dismissAll();
       this.optionNewAuthor();
     }
   }

@@ -5,7 +5,7 @@ import { BookService } from 'src/app/services/book.service';
 import { UserService } from 'src/app/services/user.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Author } from 'src/app/models/author';
-import { SortPipe } from './../../pipes/sort.pipe';
+// import { SortPipe } from './../../pipes/sort.pipe';
 /**
  * Componente Lista de autores READ & DELETE
  *
@@ -45,7 +45,7 @@ export class ListarautoresComponent implements OnInit {
    * @type {Author[]}
    * @memberof ListarautoresComponent
    */
-  authors: Author[];
+  authors: Author[] = [];
   /**
    * autor
    *
@@ -62,7 +62,7 @@ export class ListarautoresComponent implements OnInit {
 
  /**
   * Creates an instance of ListarautoresComponent.
-  * @param {Router} router Para rutas
+  * @param  router Para rutas
   * @param {ActivatedRoute} activatedRoute Para rutas
   * @param {NgbModal} modalService Para Ventanas Modales
   * @param {AuthorService} authorService Servicio de Author

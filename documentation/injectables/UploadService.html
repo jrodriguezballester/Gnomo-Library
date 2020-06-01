@@ -415,7 +415,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { HttpClient, HttpEventType } from &#x27;@angular/common/http&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
-import { apiUrl } from &#x27;./../_helpers/configuracion&#x27;;
+import { apiUrl } from &#x27;../configuracionAPI&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
@@ -432,7 +432,7 @@ export class UploadService {
 
   upload(data) {
 console.log(&#x27;servicio upload______ &#x27;, data);
-return this.http.post&lt;any&gt;(apiUrl + &#x27;/upload&#x27;, data, { //this.urlServidor &#x3D;&#x3D; apiUrl + &#x27;/upload&#x27;
+return this.http.post&lt;any&gt;(apiUrl + &#x27;/upload&#x27;, data, { // this.urlServidor &#x3D;&#x3D; apiUrl + &#x27;/upload&#x27;
       reportProgress: true,
       observe: &#x27;events&#x27;
     }).pipe(map((event) &#x3D;&gt; {

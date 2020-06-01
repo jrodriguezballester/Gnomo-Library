@@ -193,9 +193,9 @@
                 <div class="row">
                     <div class="col">
                         <p>Autor&nbsp;</p>
-                        <input type="text" list="autores1" (change)="buscar()" class="ml-2" formControlName="textoSelect" [(ngModel)]="textoSelect" placeholder="{{book.first_name}}&nbsp;{{book.last_name}}" />
+                        <input type="text" list="autores1" (change)="sacarid()" class="ml-2" formControlName="textoSelect" [(ngModel)]="textoSelect" placeholder="{{book.first_name}}&nbsp;{{book.last_name}}" />
                         <datalist id="autores1">
-                    <option *ngFor="let autor of authors" >
+                    <option *ngFor="let autor of authors"  >
                       {{autor.id}} &nbsp;{{autor.first_name}}&nbsp;{{autor.last_name}}
                     </option>
                   </datalist>

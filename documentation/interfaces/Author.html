@@ -131,6 +131,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Fecha nacimiento del autor</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -160,6 +166,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Nombre del autor</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -189,6 +201,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Id autonumerico</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -218,6 +236,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Apellido del autor</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -247,6 +271,13 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Nacionalidad del autor</p>
+<p>Validacion Solo letras</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -255,12 +286,38 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Author {
+  /**
+   * Id autonumerico
+   */
   id: number;
+  /**
+   * Nombre del autor
+   *
+   * @type Validacion Solo letras
+   * @memberof Author
+   */
   first_name: string;
+  /**
+   * Apellido del autor
+   *
+   * @type Validacion Solo letras
+   * @memberof Author
+   */
   last_name: string;
+  /**
+   * Nacionalidad del autor
+   *
+   * Validacion Solo letras
+   */
   nacionalidad: string;
+  /**
+   * Fecha nacimiento del autor
+   *
+   * @memberof Author
+   */
   fechaNacimiento: any;
-}</code></pre>
+}
+</code></pre>
     </div>
 </div>
 
